@@ -26,6 +26,12 @@ class CreateTables extends Migration
                 'constraint' => '100',
                 'unique'     => true,
             ],
+            'no_hp' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '20',
+                'null'       => true,
+            ],
+
             'password' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
@@ -74,8 +80,8 @@ class CreateTables extends Migration
             ],
             'status' => [
                 'type'       => 'ENUM',
-                'constraint' => ['available', 'maintenance', 'unavailable'],
-                'default'    => 'available',
+                'constraint' => ['Tersedia', 'Perawatan', 'Penuh'],
+                'default'    => 'Tersedia',
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -122,13 +128,13 @@ class CreateTables extends Migration
             ],
             'payment_status' => [
                 'type'       => 'ENUM',
-                'constraint' => ['pending', 'paid', 'approved', 'rejected'],
-                'default'    => 'pending',
+                'constraint' => ['Menunggu Konfirmasi', 'Sudah Dibayar', 'Disetujui', 'Ditolak'],
+                'default'    => 'Menunggu Konfirmasi',
             ],
             'booking_status' => [
                 'type'       => 'ENUM',
-                'constraint' => ['pending', 'approved', 'rejected', 'completed', 'cancelled'],
-                'default'    => 'pending',
+                'constraint' => ['Menunggu Konfirmasi', 'Disetujui', 'Ditolak', 'Selesai', 'Dibatalkan'],
+                'default'    => 'Menunggu Konfirmasi',
             ],
             'payment_proof' => [
                 'type'       => 'VARCHAR',

@@ -70,10 +70,11 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             // 'honeypot',
-            // 'csrf',
+             'csrf',
             // 'invalidchars',
         ],
         'after' => [
+            'toolbar',
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -103,5 +104,19 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+     public array $filters = [
+        'auth' => [
+            'before' => [
+                '/', // Halaman utama
+                'lapangan/*', // Detail lapangan
+                'booking/*', // Proses booking
+                'my-bookings', // Booking saya
+            ],
+        ],
+        'adminAuth' => [
+            'before' => [
+                'admin/*', // Semua rute di bawah admin
+            ],
+        ],
+    ];
 }
