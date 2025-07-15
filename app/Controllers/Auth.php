@@ -85,7 +85,7 @@ class Auth extends Controller
             'username' => $this->request->getPost('username'),
             'email'    => $this->request->getPost('email'),
             'no_hp'    => $this->request->getPost('no_hp'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'password' => $this->request->getPost('password'),
             'role'     => 'user',
         ];
 
