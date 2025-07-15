@@ -47,8 +47,8 @@ class Bookings extends BaseController
         }
 
         $data = [
-            'payment_status' => 'approved',
-            'booking_status' => 'approved',
+            'payment_status' => 'Disetujui',
+            'booking_status' => 'Disetujui',
             'admin_notes'    => $this->request->getPost('admin_notes'),
         ];
 
@@ -68,8 +68,8 @@ class Bookings extends BaseController
         }
 
         $data = [
-            'payment_status' => 'rejected',
-            'booking_status' => 'rejected',
+            'payment_status' => 'Ditolak',
+            'booking_status' => 'Dibatalkan',
             'admin_notes'    => $this->request->getPost('admin_notes'),
         ];
 
