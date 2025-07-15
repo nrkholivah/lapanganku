@@ -48,8 +48,8 @@ class Lapangan extends BaseController
         $file = $this->request->getFile('image');
         if ($file && $file->isValid() && ! $file->hasMoved()) {
             $imageName = $file->getRandomName();
-            $file->move(ROOTPATH . 'public/uploads/lapangan', $imageName); 
-            $imageName = 'uploads/lapangan/' . $imageName; 
+            $file->move(ROOTPATH . 'image/lapangan', $imageName); 
+            $imageName = 'image/lapangan/' . $imageName; 
         }
 
         $data = [
@@ -109,8 +109,8 @@ class Lapangan extends BaseController
                 unlink(ROOTPATH . 'public/' . $imageName);
             }
             $imageName = $file->getRandomName();
-            $file->move(ROOTPATH . 'public/uploads/lapangan', $imageName);
-            $imageName = 'uploads/lapangan/' . $imageName; 
+            $file->move(ROOTPATH . 'image/lapangan', $imageName);
+            $imageName = 'image/lapangan/' . $imageName; 
         }
 
         $data = [

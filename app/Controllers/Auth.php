@@ -73,7 +73,7 @@ class Auth extends Controller
         $rules = [
             'username' => 'required',
             'email'    => 'required',
-            'password' => 'required]',
+            'password' => 'required',
             'pass_confirm' => 'required_with[password]|matches[password]',
         ];
 

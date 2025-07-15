@@ -4,7 +4,6 @@ namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
 use App\Models\LapanganModel; 
-
 class Home extends BaseController
 {
     protected $lapanganModel; 
@@ -36,6 +35,6 @@ class Home extends BaseController
             'title' => 'Detail Lapangan: ' . $lapangan['name'], 
             'lapangan' => $lapangan, 
         ];
-        return view('user/lapangan_detail', $data);
+        return view('user/lapangan_detail', $data); 
     }
 }

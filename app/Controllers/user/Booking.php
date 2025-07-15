@@ -1,27 +1,29 @@
 <?php
+// app/Controllers/User/Booking.php
+// Controller untuk proses booking dan melihat booking user.
 
 namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
 use App\Models\BookingModel;
-use App\Models\LapanganModel; 
+use App\Models\LapanganModel; // Changed from FieldModel
 
 class Booking extends BaseController
 {
     protected $bookingModel;
-    protected $lapanganModel; 
+    protected $lapanganModel; // Changed from fieldModel
 
     public function __construct()
     {
         $this->bookingModel = new BookingModel();
-        $this->lapanganModel = new LapanganModel(); 
+        $this->lapanganModel = new LapanganModel(); // Changed from FieldModel
         helper(['form', 'url', 'filesystem']);
     }
 
     public function create()
     {
         $rules = [
-            'lapangan_id'    => 'required|integer', 
+            'lapangan_id'    => 'required|integer', // Changed from field_id
             'booking_date' => 'required|valid_date',
             'start_time'   => 'required',
             'end_time'     => 'required',
@@ -31,18 +33,18 @@ class Booking extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $lapanganId = $this->request->getPost('lapangan_id'); 
+        $lapanganId = $this->request->getPost('lapangan_id'); // Changed from fieldId
         $bookingDate = $this->request->getPost('booking_date');
         $startTime = $this->request->getPost('start_time');
         $endTime = $this->request->getPost('end_time');
 
-        $lapangan = $this->lapanganModel->find($lapanganId); 
-        if (! $lapangan) { 
+        $lapangan = $this->lapanganModel->find($lapanganId); // Changed from field
+        if (! $lapangan) { // Changed from field
             return redirect()->back()->with('error', 'Lapangan tidak ditemukan.');
         }
 
         // Cek ketersediaan lapangan
-        if (! $this->bookingModel->isLapanganAvailable($lapanganId, $bookingDate, $startTime, $endTime)) { 
+        if (! $this->bookingModel->isLapanganAvailable($lapanganId, $bookingDate, $startTime, $endTime)) { // Changed from isFieldAvailable
             return redirect()->back()->withInput()->with('error', 'Lapangan tidak tersedia pada jam tersebut.');
         }
 
